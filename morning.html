@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Morning Reading</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #1a1a18;
+    --muted: #6b6b65;
+    --rule: #d4d0c8;
+    --bg: #f5f2eb;
+    --card-bg: #faf8f3;
+    --accent: #2c4a2e;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ink: #e8e4d9;
+      --muted: #8a8880;
+      --rule: #2e2e2a;
+      --bg: #181815;
+      --card-bg: #1f1f1b;
+      --accent: #7aad7d;
+    }
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1.5rem;
+  }
+
+  .container {
+    width: 100%;
+    max-width: 480px;
+  }
+
+  .masthead {
+    text-align: center;
+    margin-bottom: 2.5rem;
+  }
+
+  .date {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    font-size: 0.75rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 0.75rem;
+  }
+
+  .title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 400;
+    font-size: clamp(2rem, 6vw, 2.75rem);
+    line-height: 1.1;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+
+  .rule {
+    width: 40px;
+    height: 1px;
+    background: var(--accent);
+    margin: 1.25rem auto 0;
+  }
+
+  .group {
+    margin-bottom: 2rem;
+  }
+
+  .group-label {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 0.6rem;
+  }
+
+  .links {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .link-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 0;
+    text-decoration: none;
+    color: inherit;
+    border-bottom: 1px solid var(--rule);
+    transition: opacity 0.15s ease;
+    gap: 1rem;
+  }
+
+  .link-item:last-child {
+    border-bottom: none;
+  }
+
+  .link-item:hover {
+    opacity: 0.65;
+  }
+
+  .link-item:hover .arrow {
+    transform: translateX(3px);
+  }
+
+  .link-meta {
+    flex: 1;
+  }
+
+  .source {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 0.3rem;
+  }
+
+  .headline {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 400;
+    line-height: 1.35;
+    color: var(--ink);
+  }
+
+  .arrow {
+    color: var(--muted);
+    font-size: 1rem;
+    flex-shrink: 0;
+    transition: transform 0.15s ease;
+    line-height: 1;
+  }
+
+  .footer {
+    margin-top: 2rem;
+    text-align: center;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+</style>
+</head>
+<body>
+<main class="container">
+  <header class="masthead">
+    <p class="date" id="today-date"></p>
+    <h1 class="title">Morning<br>Reading</h1>
+    <div class="rule"></div>
+  </header>
+
+  <nav aria-label="Morning reading links">
+    <div class="group">
+      <p class="group-label">News</p>
+      <div class="links">
+        <a class="link-item" href="https://www.nytimes.com/newsletters/the-morning" target="_blank" rel="noopener">
+          <div class="link-meta">
+            <p class="source">New York Times</p>
+            <p class="headline">The Morning</p>
+          </div>
+          <span class="arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="link-item" href="https://www.theguardian.com/us-news/series/guardian-morning-briefing" target="_blank" rel="noopener">
+          <div class="link-meta">
+            <p class="source">The Guardian</p>
+            <p class="headline">US Morning Briefing</p>
+          </div>
+          <span class="arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="link-item" href="https://chicago.suntimes.com/morning-edition" target="_blank" rel="noopener">
+          <div class="link-meta">
+            <p class="source">Chicago Sun-Times</p>
+            <p class="headline">Morning Edition</p>
+          </div>
+          <span class="arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="group">
+      <p class="group-label">Sport</p>
+      <div class="links">
+        <a class="link-item" href="https://www.nytimes.com/athletic/football/" target="_blank" rel="noopener">
+          <div class="link-meta">
+            <p class="source">The Athletic</p>
+            <p class="headline">Football</p>
+          </div>
+          <span class="arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="link-item" href="https://www.bbc.com/sport" target="_blank" rel="noopener">
+          <div class="link-meta">
+            <p class="source">BBC</p>
+            <p class="headline">Sport</p>
+          </div>
+          <span class="arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="group">
+      <p class="group-label">Social</p>
+      <div class="links">
+        <a class="link-item" href="https://www.reddit.com/r/chicago/" target="_blank" rel="noopener">
+          <div class="link-meta">
+            <p class="source">Reddit</p>
+            <p class="headline">r/chicago</p>
+          </div>
+          <span class="arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <footer class="footer" id="refresh-time"></footer>
+</main>
+
+<script>
+  const now = new Date();
+
+  const dateStr = now.toLocaleDateString('en-US', {
+    weekday: 'long', year: 'numeric', month: 'long', day: 'numeric',
+    timeZone: 'America/Chicago'
+  });
+  document.getElementById('today-date').textContent = dateStr;
+
+  function msUntil6amCT() {
+    const ct = new Date(now.toLocaleString('en-US', { timeZone: 'America/Chicago' }));
+    const next6am = new Date(ct);
+    next6am.setHours(6, 0, 0, 0);
+    if (ct >= next6am) next6am.setDate(next6am.getDate() + 1);
+    return next6am - ct;
+  }
+
+  const ms = msUntil6amCT();
+  const hrs = Math.floor(ms / 3600000);
+  const mins = Math.floor((ms % 3600000) / 60000);
+  const refreshEl = document.getElementById('refresh-time');
+
+  if (hrs === 0 && mins < 2) {
+    refreshEl.textContent = 'Refreshes at 6 am';
+  } else if (hrs < 12) {
+    refreshEl.textContent = `Refreshes in ${hrs}h ${mins}m`;
+  } else {
+    refreshEl.textContent = 'Refreshes at 6 am';
+  }
+
+  setTimeout(() => location.reload(), ms);
+</script>
+</body>
+</html>
